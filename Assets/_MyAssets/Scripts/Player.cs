@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     public void DegatJoueur()
     {
         _viesJoueur--;
+        UIManager.Instance.ChangeLivesDisplayImage(_viesJoueur);
         if(_viesJoueur < 1)
         {
             Destroy(gameObject);

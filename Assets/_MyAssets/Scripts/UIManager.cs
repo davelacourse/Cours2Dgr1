@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManager : MonoBehaviour  {
+
+    public static UIManager Instance;
     
     [SerializeField] private int _score =  default;
     [SerializeField] private TextMeshProUGUI _txtScore = default;
@@ -16,8 +18,20 @@ public class UIManager : MonoBehaviour  {
     [SerializeField] private Sprite[] _liveSprites = default;
     [SerializeField] private GameObject _pausePanel = default;
     private bool _pauseOn = false;
-    
+
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start() {
         _score = 0;

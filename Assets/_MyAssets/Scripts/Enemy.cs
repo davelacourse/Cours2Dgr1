@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            UIManager.Instance.AjouterScore(10);
         }
         else if(collision.gameObject.tag == "Player")
         {
