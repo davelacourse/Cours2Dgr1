@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
 
     [SerializeField] private float _vitesseEnnemi = 7f;
+    [SerializeField] private AudioClip _sonExplosion = default(AudioClip);
 
     private void Update()
     {
@@ -33,5 +34,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             Player.Instance.DegatJoueur();
         }
+        AudioSource.PlayClipAtPoint(_sonExplosion, Camera.main.transform.position, 0.5f);
     }
 }
